@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import "./Register.css";
 import Navbar from "../Navbar/Navbar";
 import { useNavigate } from "react-router-dom";
-import { FaEye } from "react-icons/fa";
-import { FaEyeSlash } from "react-icons/fa6";
+
 const Register = () => {
   const [eye, seteye] = useState(false);
   const [data, setdata] = useState({

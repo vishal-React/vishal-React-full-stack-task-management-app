@@ -8,7 +8,7 @@ import { FaShoppingCart } from "react-icons/fa";
 import { useCart } from "../../CartContext";
 import { RecipesContext } from "../../RecipesContext";
 import { useOrderHistory } from "../../OrderHistoryContext";
-import { NavLink, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { IoPersonCircle } from "react-icons/io5";
 import ScrollToTop from "../ScrollToTop/ScrollToTop";
 

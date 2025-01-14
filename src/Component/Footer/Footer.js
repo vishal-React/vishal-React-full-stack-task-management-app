@@ -62,18 +62,18 @@ const Footer = () => {
         <div className="footer-section">
           <h4>Follow Us</h4>
           <div className="social-icons">
-            <a href="#" aria-label="Facebook">
+            <p aria-label="Facebook">
               <FaFacebook />
-            </a>
-            <a href="#" aria-label="Twitter">
+            </p>
+            <p aria-label="Twitter">
               <FaTwitter />
-            </a>
-            <a href="#" aria-label="Instagram">
+            </p>
+            <p aria-label="Instagram">
               <FaInstagram />
-            </a>
-            <a href="#" aria-label="YouTube">
+            </p>
+            <p aria-label="YouTube">
               <FaYoutube />
-            </a>
+            </p>
           </div>
         </div>
       </div>

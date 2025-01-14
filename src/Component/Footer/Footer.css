@@ -53,13 +53,14 @@
     margin-top: 10px;
   }
   
-  .footer-section .social-icons a {
+  .footer-section .social-icons p {
     color: #ccc;
     font-size: 1.5rem;
     transition: color 0.3s ease;
   }
   
-  .footer-section .social-icons a:hover {
+  .footer-section .social-icons p:hover {
+    cursor: pointer;
     color: hsl(50deg 100% 50%);
   }
   

@@ -1,8 +1,8 @@
 import React from "react";
 import "./App.css";
-import HeroPage from "./HeroPage/Heropage/HeroPage";
-import Register from "./HeroPage/RegisterPage/Register";
-import History from "./HeroPage/HistoryPage/History";
+import HeroPage from "./Component/Heropage/HeroPage";
+import Register from "./Component/RegisterPage/Register";
+import History from "./Component/HistoryPage/History";
 import { Toaster } from "react-hot-toast";
 import RecipesProvider from "./RecipesContext";
 import { CartProvider } from "./CartContext";

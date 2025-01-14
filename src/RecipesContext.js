@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect } from "react";
+import React, { createContext, useState, useEffect, useCallback } from "react";
 
 export const RecipesContext = createContext();
 
@@ -11,7 +11,7 @@ const RecipesProvider = ({ children }) => {
   const API =
     "https://api.unsplash.com/search/photos?query=burger&client_id=9Dtwqe4dDELs9RoLeitmD_Yvk4lAqgMmdFNpQTCG-9w";
 
-  const fetchApi = async () => {
+  const fetchApi = useCallback(async () => {
     setLoading(true);
     try {
       const res = await fetch(`${API}&page=${page}`);
@@ -32,7 +32,7 @@ const RecipesProvider = ({ children }) => {
       console.error("Error fetching API data:", error);
       setLoading(false);
     }
-  };
+  }, [API, page]); 
 
   const filterRecipes = (searchQuery) => {
     const query = searchQuery.toLowerCase();
@@ -44,7 +44,7 @@ const RecipesProvider = ({ children }) => {
 
   useEffect(() => {
     fetchApi();
-  }, [page]);
+  }, [fetchApi]); 
 
   return (
     <RecipesContext.Provider

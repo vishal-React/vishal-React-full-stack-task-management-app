@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { RecipesContext } from "../../RecipesContext";
 
 const Slider = () => {
-  const { recipes, loading } = useContext(RecipesContext);
+  const { recipes } = useContext(RecipesContext);
   let slidearr = recipes
     .slice(0, recipes.length - 2)
     .slice(5)
