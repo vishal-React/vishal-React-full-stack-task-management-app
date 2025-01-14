@@ -1,0 +1,94 @@
+.order-detail {
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin: 20px;
+  max-width: 600px;
+  font-family: Arial, sans-serif;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
+.order-detail h3,
+.bottomBorder {
+  border-bottom: 1px solid black;
+}
+
+.hiscenter {
+  display: grid;
+  place-items: center;
+}
+
+.slightLeft {
+  margin-left: 15px;
+}
+
+.order-detail ul {
+  list-style-type: disc;
+  margin-left: 20px;
+}
+
+.order-detail li {
+  list-style-type: disc;
+}
+
+.titleBold {
+  font-weight: 600;
+}
+
+.hei {
+  margin-top: 200px;
+  margin-bottom: 15px;
+}
+
+/* go back  */
+.backbtn {
+  position: relative;
+  overflow: hidden;
+  outline: none;
+  cursor: pointer;
+  border-radius: 50px;
+  background-color: hsl(0, 0%, 0%);
+  box-shadow: hsl(50deg 100% 50%) 0px 3px 8px;
+  font-family: inherit;
+  margin-bottom: 20px;
+}
+
+.default-btn,
+.hover-btn {
+  background-color: hsl(0, 0%, 0%);
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px 20px;
+  border-radius: 50px;
+  font-size: 17px;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: all .3s ease;
+}
+
+.hover-btn {
+  position: absolute;
+  inset: 0;
+  background-color: hsl(0, 0%, 0%);
+  transform: translate(0%, 100%);
+}
+
+.default-btn span {
+  color: hsl(0, 0%, 100%);
+}
+
+.hover-btn span {
+  color: hsl(50deg 100% 50%);
+}
+
+.backbtn:hover .default-btn {
+  transform: translate(0%, -100%);
+}
+
+.backbtn:hover .hover-btn {
+  transform: translate(0%, 0%);
+}

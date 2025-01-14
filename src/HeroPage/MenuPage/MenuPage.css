@@ -1,0 +1,251 @@
+.dish {
+    height: 100px;
+    width: 100px;
+}
+
+.cardsF {
+    margin-top: 30px;
+    display: grid;
+    place-items: center;
+    gap: 9px;
+    grid-template-columns: auto auto auto auto;
+}
+
+@media (max-width: 1100px) {
+    .cardsF {
+        display: grid;
+        grid-template-columns: auto auto auto;
+    }
+}
+
+@media (max-width: 900px) {
+    .cardsF {
+        display: grid;
+        grid-template-columns: auto auto;
+    }
+}
+
+@media (max-width: 570px) {
+    .cardsF {
+        display: grid;
+        grid-template-columns: auto;
+    }
+}
+
+.two-colum {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cartBtn {
+    width: 155px;
+    height: 50px;
+    border: none;
+    border-radius: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    color: white;
+    font-weight: 500;
+    position: relative;
+    background-color: #333;
+    box-shadow: 0 20px 30px -7px rgba(27, 27, 27, 0.219);
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.cart {
+    z-index: 2;
+}
+
+.cartBtn:active {
+    transform: scale(0.96);
+}
+
+.product {
+    position: absolute;
+    width: 12px;
+    border-radius: 3px;
+    content: "";
+    left: 23px;
+    bottom: 23px;
+    opacity: 0;
+    z-index: 1;
+    fill: rgb(211, 211, 211);
+}
+
+.cartBtn:hover .product {
+    animation: slide-in-top 1.2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+@keyframes slide-in-top {
+    0% {
+        transform: translateY(-30px);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(0) rotate(-90deg);
+        opacity: 1;
+    }
+}
+
+.cartBtn:hover .cart {
+    animation: slide-in-left 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+@keyframes slide-in-left {
+    0% {
+        transform: translateX(-10px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.card {
+    position: relative;
+    overflow: hidden;
+    width: 18rem;
+    height: auto;
+}
+
+.cardImage {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease-in-out;
+}
+
+.card:hover .cardImage {
+    transform: scale(1.1);
+}
+
+.card-body {
+    padding: 1rem;
+}
+
+.card-body .card-title,
+.card-body .card-text {
+    overflow: hidden;
+}
+
+.card-body .two-colum {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cartBtn:hover {
+    background-color: #555;
+}
+
+.cartBtn:active {
+    transform: scale(0.96);
+}
+
+.cardImage {
+    height: 300px;
+    transition: transform 0.3s ease;
+}
+
+.card:hover .cardImage {
+    transform: scale(1.1);
+}
+
+/* loader */
+.loader {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+}
+
+/* load more  */
+/* From Uiverse.io by mrhyddenn */
+.load-more-btn {
+    position: relative;
+    margin: 0;
+    padding: 0.8em 1em;
+    outline: none;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: none;
+    text-transform: uppercase;
+    background-color: #333;
+    border-radius: 10px;
+    color: #fff;
+    font-weight: 300;
+    font-size: 18px;
+    font-family: inherit;
+    z-index: 0;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.02, 0.01, 0.47, 1);
+}
+
+.load-more-btn:hover {
+    animation: sh0 0.5s ease-in-out both;
+}
+
+@keyframes sh0 {
+    0% {
+        transform: rotate(0deg) translate3d(0, 0, 0);
+    }
+
+    25% {
+        transform: rotate(7deg) translate3d(0, 0, 0);
+    }
+
+    50% {
+        transform: rotate(-7deg) translate3d(0, 0, 0);
+    }
+
+    75% {
+        transform: rotate(1deg) translate3d(0, 0, 0);
+    }
+
+    100% {
+        transform: rotate(0deg) translate3d(0, 0, 0);
+    }
+}
+
+.load-more-btn:hover span {
+    animation: storm 0.7s ease-in-out both;
+    animation-delay: 0.06s;
+}
+
+.load-more-btn::before,
+.load-more-btn::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: #fff;
+    opacity: 0;
+    transition: transform 0.15s cubic-bezier(0.02, 0.01, 0.47, 1), opacity 0.15s cubic-bezier(0.02, 0.01, 0.47, 1);
+    z-index: -1;
+    transform: translate(100%, -25%) translate3d(0, 0, 0);
+}
+
+.load-more-btn:hover::before,
+.load-more-btn:hover::after {
+    opacity: 0.15;
+    transition: transform 0.2s cubic-bezier(0.02, 0.01, 0.47, 1), opacity 0.2s cubic-bezier(0.02, 0.01, 0.47, 1);
+}
+
+.load-more-btn:hover::before {
+    transform: translate3d(50%, 0, 0) scale(0.9);
+}
+
+.load-more-btn:hover::after {
+    transform: translate(50%, 0) scale(1.1);
+}
