@@ -15,7 +15,7 @@ const Slider = () => {
           data-bs-ride="carousel"
           data-bs-pause="false"
         >
-          {/* Carousel Indicators */}
+          {/* Carousel Indicators 5*/}
           <div className="carousel-indicators">
             {slidearr.map((_, index) => (
               <button
