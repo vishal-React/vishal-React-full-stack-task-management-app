@@ -14,7 +14,6 @@ import { IoPersonCircle } from "react-icons/io5";
 const Navbar = () => {
   const navigate = useNavigate();
   const sidebarRef = useRef(null);
-  const logoutRef = useRef(null);
   const [active, setActive] = useState(null);
   const [storedData, setStoredData] = useState(null);
   const [log, setLog] = useState(false);

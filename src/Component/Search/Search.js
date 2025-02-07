@@ -298,7 +298,7 @@ const Search = () => {
             <div key={index} className="card skeleton-card">
               <div className="card-img skeleton-img"></div>
               <div className="card-body">
-                <h5 className="card-title skeleton-text"></h5>
+                <h5 className="card-title skeleton-text">&nbsp;</h5>
                 <p className="card-text skeleton-text"></p>
                 <div className="two-colum">
                   <div className="skeleton-btn"></div>
