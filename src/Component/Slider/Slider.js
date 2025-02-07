@@ -3,77 +3,55 @@ import { RecipesContext } from "../../RecipesContext";
 
 const Slider = () => {
   const { recipes } = useContext(RecipesContext);
-  let slidearr = recipes
-    .slice(0, recipes.length - 2)
-    .slice(5)
-    .filter((elm) => elm);
+  let slidearr = recipes.slice(5).filter((elm) => elm);
+  slidearr.length = 5;
 
   return (
     <>
-      {slidearr.length > 0 ? (
+      {slidearr.length > 0 && (
         <div
           id="carouselExampleCaptions"
           className="carousel slide"
           data-bs-ride="carousel"
           data-bs-pause="false"
         >
+          {/* Carousel Indicators */}
           <div className="carousel-indicators">
-            <button
-              type="button"
-              data-bs-target="#carouselExampleCaptions"
-              data-bs-slide-to={0}
-              className="active"
-              aria-current="true"
-              aria-label="Slide 1"
-            />
-            <button
-              type="button"
-              data-bs-target="#carouselExampleCaptions"
-              data-bs-slide-to={1}
-              aria-label="Slide 2"
-            />
-            <button
-              type="button"
-              data-bs-target="#carouselExampleCaptions"
-              data-bs-slide-to={2}
-              aria-label="Slide 3"
-            />
+            {slidearr.map((_, index) => (
+              <button
+                key={index}
+                type="button"
+                data-bs-target="#carouselExampleCaptions"
+                data-bs-slide-to={index}
+                className={index === 0 ? "active" : ""}
+                aria-current={index === 0 ? "true" : "false"}
+                aria-label={`Slide ${index + 1}`}
+              />
+            ))}
           </div>
-          <div className="carousel-inner ">
-            <div className="carousel-item active " data-bs-interval="3000">
-              <img
-                src={slidearr[0].urls.full}
-                className="d-block w-100 "
-                alt="..."
-                style={{ maxHeight: "550px", objectFit: "cover" }}
-              />
-              <div className="carousel-caption d-none d-md-block">
-                <h5>{slidearr[0].alt_description}</h5>
+
+          {/* Carousel Inner */}
+          <div className="carousel-inner">
+            {slidearr.map((item, index) => (
+              <div
+                key={index}
+                className={`carousel-item ${index === 0 ? "active" : ""}`}
+                data-bs-interval="2500"
+              >
+                <img
+                  src={item.urls.full}
+                  className="d-block w-100"
+                  alt={item.alt_description || "Slide image"}
+                  style={{ height: "93vh", objectFit: "cover" }}
+                />
+                <div className="carousel-caption d-none d-md-block">
+                  <h5>{item.alt_description}</h5>
+                </div>
               </div>
-            </div>
-            <div className="carousel-item" data-bs-interval="3000">
-              <img
-                src={slidearr[1].urls.full}
-                className="d-block w-100"
-                alt="..."
-                style={{ maxHeight: "550px", objectFit: "cover" }}
-              />
-              <div className="carousel-caption d-none d-md-block">
-                <h5>{slidearr[1].alt_description}</h5>
-              </div>
-            </div>
-            <div className="carousel-item" data-bs-interval="3000">
-              <img
-                src={slidearr[2].urls.full}
-                className="d-block w-100"
-                alt="..."
-                style={{ maxHeight: "550px", objectFit: "cover" }}
-              />
-              <div className="carousel-caption d-none d-md-block">
-                <h5>{slidearr[2].alt_description}</h5>
-              </div>
-            </div>
+            ))}
           </div>
+
+          {/* Carousel Controls */}
           <button
             className="carousel-control-prev"
             type="button"
@@ -93,8 +71,6 @@ const Slider = () => {
             <span className="visually-hidden">Next</span>
           </button>
         </div>
-      ) : (
-        ""
       )}
     </>
   );

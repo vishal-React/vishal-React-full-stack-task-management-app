@@ -1,0 +1,72 @@
+/* Responsive Design */
+@media (max-width: 767px) {
+    .navbar-menu {
+        display: none;
+    }
+
+    .navbars .percart {
+        display: none;
+    }
+
+    .navbars .hide {
+        display: block;
+    }
+
+    nav .cart-icon {
+        gap: 0.8rem;
+    }
+
+    .navbars.navbars {
+        padding: 10px;
+    }
+
+    .carousel-item img {
+        height: 45vh !important;
+    }
+
+    .navbar-toggle .hamburger-label div {
+        width: 25px;
+    }
+
+    .navbar-toggle .hamburger-label {
+        width: 25px;
+    }
+
+    .navbars .cart-container {
+        font-size: 1.8rem;
+    }
+
+    .navbars .navbar-logo {
+        font-size: 1.3rem;
+    }
+
+    .input-container .input,
+    .input-container .icon {
+        width: 32px;
+        height: 32px;
+    }
+
+    body {
+        padding-top: 52px !important;
+    }
+
+    .back-to-top.back-to-top {
+        width: 40px;
+        height: 40px;
+        font-size: 15px;
+        bottom: 20px;
+        right: 18px;
+    }
+}
+
+@media (max-width: 490px) {
+    .hidden {
+        display: none !important;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .carousel-item img {
+        height: 45vh !important;
+    }
+}

@@ -6,7 +6,7 @@
     font-weight: 700;
 }
 
-form {
+.loginForm {
     display: flex;
     flex-direction: column;
     background: #fff;
@@ -16,18 +16,18 @@ form {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
-form input {
+.loginForm  input {
     outline: none;
     padding: 0.4rem 0.5rem;
     margin-bottom: 0.8rem;
     font-size: 0.9rem;
 }
 
-form input:focus {
+.loginForm  input:focus {
     border: 1.8px solid #333;
 }
 
-form .login {
+.loginForm  .login {
     outline: none;
     border: none;
     background: #333;
@@ -39,12 +39,12 @@ form .login {
     justify-content: center;
 }
 
-form .login:hover {
+.loginForm  .login:hover {
     background: #434343;
     cursor: pointer;
 }
 
-form a {
+.loginForm  a {
     text-decoration: none;
     text-align: center;
     font-size: 0.9rem;
@@ -52,12 +52,12 @@ form a {
     color: #1877f2;
 }
 
-form hr {
+.loginForm  hr {
     background: #f7f7f7;
     margin: 0.5rem;
 }
 
-form .create-account {
+.loginForm  .create-account {
     outline: none;
     border: none;
     background: #06b909;
@@ -69,7 +69,7 @@ form .create-account {
     margin: 0 auto;
 }
 
-form .create-account:hover {
+.loginForm  .create-account:hover {
     background: #03ad06;
     cursor: pointer;
 }
@@ -77,6 +77,5 @@ form .create-account:hover {
 .Formcenter {
     display: grid;
     place-items: center;
-    margin-top: 70px;
-    /* height: 100vh; */
+    height: 89vh;
 }

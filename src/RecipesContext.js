@@ -4,56 +4,82 @@ export const RecipesContext = createContext();
 
 const RecipesProvider = ({ children }) => {
   const [recipes, setRecipes] = useState([]);
-  const [filteredRecipes, setFilteredRecipes] = useState([]);
+  const [searchItem, setSearchItem] = useState([]);
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
+  const [pages, setPages] = useState(1);
+  const [searchQuery, setSearchQuery] = useState("pizza");
 
-  const API =
-    "https://api.unsplash.com/search/photos?query=burger&client_id=9Dtwqe4dDELs9RoLeitmD_Yvk4lAqgMmdFNpQTCG-9w";
+  const API_BASE = "https://api.unsplash.com/search/photos";
+  const CLIENT_ID = "9Dtwqe4dDELs9RoLeitmD_Yvk4lAqgMmdFNpQTCG-9w";
 
+  // for menu page
   const fetchApi = useCallback(async () => {
     setLoading(true);
     try {
-      const res = await fetch(`${API}&page=${page}`);
+      const res = await fetch(
+        `${API_BASE}?query=burger&page=${page}&client_id=${CLIENT_ID}`
+      );
+      const data = await res.json();
+      setRecipes(
+        page === 1 ? data.results : (prev) => [...prev, ...data.results]
+      );
+      setLoading(false);
+    } catch (error) {
+      console.error("Error fetching API data:", error);
+      setLoading(false);
+    }
+  }, [page]);
+
+  useEffect(() => {
+    fetchApi();
+  }, [fetchApi]);
+
+  // for search page
+  const fetchSearchResults = useCallback(async () => {
+    setLoading(true);
+    try {
+      const res = await fetch(
+        `${API_BASE}?query=${searchQuery}&page=${pages}&client_id=${CLIENT_ID}`
+      );
       const data = await res.json();
 
-      if (page === 1) {
-        setRecipes(data.results);
-        setFilteredRecipes(data.results);
+      if (pages === 1) {
+        setSearchItem(data.results);
       } else {
-        setRecipes((prevRecipes) => [...prevRecipes, ...data.results]);
-        setFilteredRecipes((prevFilteredRecipes) => [
-          ...prevFilteredRecipes,
-          ...data.results,
-        ]);
+        setSearchItem((prevRecipes) => [...prevRecipes, ...data.results]);
       }
       setLoading(false);
     } catch (error) {
       console.error("Error fetching API data:", error);
       setLoading(false);
     }
-  }, [API, page]); 
+  }, [searchQuery, pages]);
 
-  const filterRecipes = (searchQuery) => {
-    const query = searchQuery.toLowerCase();
-    const filtered = recipes.filter((recipe) =>
-      recipe.alt_description.toLowerCase().includes(query)
-    );
-    setFilteredRecipes(filtered);
-  };
+  // Whenever the searchQuery changes, reset pages to 1 and fetch new results
+  useEffect(() => {
+    if (searchQuery) {
+      setPages(1);
+      setSearchItem([]); // Clear previous search results
+    }
+  }, [searchQuery]);
 
   useEffect(() => {
-    fetchApi();
-  }, [fetchApi]); 
+    if (searchQuery) {
+      fetchSearchResults();
+    }
+  }, [searchQuery, pages, fetchSearchResults]);
 
   return (
     <RecipesContext.Provider
       value={{
-        recipes,
-        filteredRecipes,
         loading,
-        filterRecipes,
+        recipes,
+        searchItem,
+        searchQuery,
         setPage,
+        setPages,
+        setSearchQuery,
       }}
     >
       {children}

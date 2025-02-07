@@ -31,11 +31,12 @@ const Register = () => {
     });
     navigate("/");
   };
+  
   return (
     <>
       <Navbar />
       <div className="Formcenter">
-        <form onSubmit={handelsubmit}>
+        <form onSubmit={handelsubmit} className="loginForm">
           <p className="logo">Food Delivery</p>
           <input
             type="text"

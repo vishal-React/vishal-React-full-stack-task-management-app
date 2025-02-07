@@ -4,10 +4,10 @@
 }
 
 .cardsF {
-    margin-top: 30px;
     display: grid;
     place-items: center;
     gap: 9px;
+    row-gap: 23px;
     grid-template-columns: auto auto auto auto;
 }
 
@@ -25,16 +25,10 @@
     }
 }
 
-@media (max-width: 570px) {
-    .cardsF {
-        display: grid;
-        grid-template-columns: auto;
-    }
-}
-
-.two-colum {
-    display: flex;
-    justify-content: space-between;
+.cardImage {
+    width: 100% !important;
+    height: 300px;
+    transition: transform 0.3s ease-in-out;
 }
 
 .cartBtn {
@@ -113,13 +107,9 @@
     overflow: hidden;
     width: 18rem;
     height: auto;
+    background-color: rgb(252, 252, 252) !important;
 }
 
-.cardImage {
-    width: 100%;
-    height: auto;
-    transition: transform 0.3s ease-in-out;
-}
 
 .card:hover .cardImage {
     transform: scale(1.1);
@@ -134,23 +124,27 @@
     overflow: hidden;
 }
 
+.card-title::first-letter {
+    text-transform: uppercase;
+}
+
 .card-body .two-colum {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: 1rem;
 }
 
 .cartBtn:hover {
     background-color: #555;
+    box-shadow: rgba(0, 0, 0, 0.5) 0 10px 20px;
+    transform: translateY(-3px);
 }
 
 .cartBtn:active {
     transform: scale(0.96);
-}
-
-.cardImage {
-    height: 300px;
-    transition: transform 0.3s ease;
+    box-shadow: none;
+    transform: translateY(0);
 }
 
 .card:hover .cardImage {
@@ -165,7 +159,6 @@
 }
 
 /* load more  */
-/* From Uiverse.io by mrhyddenn */
 .load-more-btn {
     position: relative;
     margin: 0;
@@ -248,4 +241,120 @@
 
 .load-more-btn:hover::after {
     transform: translate(50%, 0) scale(1.1);
+}
+
+.two-colum p {
+    margin-bottom: 0;
+    font-weight: bold;
+}
+
+.loadCenter {
+    display: grid;
+    place-items: center;
+    padding: 2rem;
+}
+
+/* Skeleton Loader Styles */
+.skeleton-card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    background-color: #f0f0f0;
+}
+
+.skeleton-img {
+    width: 100%;
+    height: 250px;
+    background-color: #e0e0e0;
+    animation: pulse 1.5s infinite ease-in-out;
+}
+
+.skeleton-text {
+    height: 20px;
+    width: 100%;
+    background-color: #e0e0e0;
+    margin-bottom: 10px;
+    animation: pulse 1.5s infinite ease-in-out;
+}
+
+.skeleton-btn {
+    width: 120px;
+    height: 40px;
+    background-color: #e0e0e0;
+    animation: pulse 1.5s infinite ease-in-out;
+}
+
+.skeleton-price {
+    width: 80px;
+    height: 20px;
+    background-color: #e0e0e0;
+    animation: pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 0.6;
+    }
+
+    50% {
+        opacity: 0.8;
+    }
+
+    100% {
+        opacity: 0.6;
+    }
+}
+
+@media (max-width: 570px) {
+    .cardsF {
+        gap: 0;
+        row-gap: 15px;
+    }
+
+    .cardImage {
+        height: 170px;
+    }
+
+    .skeleton-img {
+        height: 170px;
+    }
+
+    .card-text {
+        display: none;
+    }
+
+    .card {
+        width: 10rem;
+    }
+
+    .card-body h5 {
+        font-size: 0.7rem;
+    }
+
+    .cartBtn {
+        font-weight: 400;
+        height: 35px;
+        font-size: 14px;
+    }
+
+    .card-body.card-body {
+        padding: 10px;
+    }
+
+    .card-body .two-colum {
+        flex-wrap: wrap;
+        justify-content: center !important;
+        margin-top: 0;
+    }
+
+    .two-colum p {
+        font-weight: 600;
+        padding-top: 3px;
+    }
+
+    .two-colum .skeleton-btn {
+        margin: 4px;
+        width: 130px;
+        height: 20px;
+    }
 }

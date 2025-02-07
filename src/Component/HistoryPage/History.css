@@ -15,6 +15,7 @@
 .hiscenter {
   display: grid;
   place-items: center;
+  margin-top: 1rem;
 }
 
 .slightLeft {
@@ -91,4 +92,14 @@
 
 .backbtn:hover .hover-btn {
   transform: translate(0%, 0%);
+}
+
+.vishal-center{
+  display: grid;
+  place-items: center;
+  height: 79vh;
+}
+.centerTwo{
+  display: grid;
+  place-items: center;
 }
